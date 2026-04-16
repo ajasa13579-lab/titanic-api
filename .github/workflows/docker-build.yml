@@ -22,18 +22,10 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
-      - name: Build and push Training Engine
-        uses: docker/build-push-action@v5
-        with:
-          context: ./training
-          file: ./training/Dockerfile
-          push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/titanic-engine:latest
-
-      - name: Build and push Serving Waiter
+      - name: Build and push API Image (Serving)
         uses: docker/build-push-action@v5
         with:
           context: ./serving
           file: ./serving/Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/titanic-waiter:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/titanic-engine:latest
