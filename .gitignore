@@ -1,0 +1,4 @@
+.DS_Store
+training/venv/
+__pycache__/
+*.pyc
